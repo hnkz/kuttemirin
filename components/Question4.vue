@@ -2,8 +2,8 @@
 .container
   h1 お好みは和食ですか？洋食ですか？
   .answer-form
-    v-btn(@click="yesAndNextPage" class="v-btn--flat") はい
-    v-btn(@click="noAndNextPage" class="v-btn--flat") いいえ
+    v-btn(@click="nextPage('洋食')" class="v-btn--flat") 洋食
+    v-btn(@click="nextPage('和食')" class="v-btn--flat") 和食
 </template>
 
 <script>
@@ -20,12 +20,8 @@ export default {
   data: () => ({
   }),
   methods: {
-    yesAndNextPage() {
-      this.$emit('update:answer4', 'はい')
-      this.$emit('nextPage')
-    },
-    noAndNextPage() {
-      this.$emit('update:answer4', 'いいえ')
+    nextPage(value) {
+      this.$emit('update:answer4', value)
       this.$emit('nextPage')
     }
   }
