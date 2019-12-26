@@ -1,8 +1,9 @@
 <template lang="pug">
 .container
   h1 車でいきますか？
-  p {{answer1}}
-  v-btn(@click="nextPage") つぎ
+  .answer-form
+    v-btn(@click="yesAndNextPage" class="v-btn--flat") はい
+    v-btn(@click="noAndNextPage" class="v-btn--flat") いいえ
 </template>
 
 <script>
@@ -19,8 +20,12 @@ export default {
   data: () => ({
   }),
   methods: {
-    nextPage() {
-      console.log('aue')
+    yesAndNextPage() {
+      this.$emit('update:answer1', 'はい')
+      this.$emit('nextPage')
+    },
+    noAndNextPage() {
+      this.$emit('update:answer1', 'いいえ')
       this.$emit('nextPage')
     }
   }
@@ -30,11 +35,15 @@ export default {
 .container
   margin: 0 auto;
   min-height: 100vh;
-.main
-  padding: 15px;
-header
-  height: 150px;
+h1
   text-align: center;
-.contents
-  text-align: center;
+  font-size: 2em;
+  margin: 100px 0;
+.answer-form
+  display: flex;
+  flex-direction: column;
+.v-btn--flat
+  margin: 15px;
+  min-height: 100px;
+  background-color: #EF860F;
 </style>
