@@ -1,7 +1,7 @@
 <template lang="pug">
 .header
   .position-left(@click="back")
-    v-icon(@click="back") fas fa-chevron-left
+    v-icon(@click="back") mdi-chevron-left
 </template>
 
 <script>
