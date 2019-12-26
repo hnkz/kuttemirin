@@ -4,7 +4,7 @@
     header
       h3 くってみりん
     .contents
-      v-btn(class="top-btn" to="recommend") お店を探す
+      v-btn(color="#B86513" dark flat depressed class="top-btn" to="recommend" ) お店を探す
     footer
 </template>
 
@@ -27,14 +27,9 @@ header
 .contents
   text-align: center;
 .top-btn
-  max-height: 200px;
-  max-width: 500px;
-  height: 150px;
-  rouneded: true;
-  width: 150px;
-  border: none;
-  color: black;
-  padding: 15px 32px;
-  text-align: center;
-  font-size: 16px;
+  height: 10vh!important
+  width: 30vh!important
+  max-width: 100%;
+  max-height 100%;
+  props: color;
 </style>
