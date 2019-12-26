@@ -1,9 +1,9 @@
 <template lang="pug">
 .container
-  h1 カウンターで食事を取りたいですか？
+  h1(class="recommend-title") カウンターで食事を取りたいですか？
   .answer-form
-    v-btn(@click="nextPage('はい')" class="v-btn--flat") はい
-    v-btn(@click="nextPage('いいえ')" class="v-btn--flat") いいえ
+    v-btn(@click="nextPage('はい')" class="v-btn--flat answer-btn") はい
+    v-btn(@click="nextPage('いいえ')" class="v-btn--flat answer-btn") いいえ
 </template>
 
 <script>
@@ -28,18 +28,4 @@ export default {
 }
 </script>
 <style scoped lang="stylus">
-.container
-  margin: 0 auto;
-  min-height: 100vh;
-h1
-  text-align: center;
-  font-size: 2em;
-  margin: 100px 0;
-.answer-form
-  display: flex;
-  flex-direction: column;
-.v-btn--flat
-  margin: 15px;
-  min-height: 100px;
-  background-color: #EF860F;
 </style>

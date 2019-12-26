@@ -4,7 +4,7 @@
     header
       h3 くってみりん
     .contents
-      v-btn(class="top-btn" to="recommend") お店を探す
+      v-btn(class="top-btn" to="recommend?page=Question1") お店を探す
     footer
 </template>
 
@@ -16,9 +16,6 @@ export default {
 }
 </script>
 <style scoped lang="stylus">
-.container
-  margin: 0 auto;
-  min-height: 100vh;
 .main
   padding: 15px;
 header

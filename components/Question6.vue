@@ -1,11 +1,11 @@
 <template lang="pug">
 .container
-  h1 予算はどれくらいですか？
+  h1(class="recommend-title") 予算はどれくらいですか？
   .answer-form
-    v-btn(@click="nextPage(600)" class="v-btn--flat") 〜６００円
-    v-btn(@click="nextPage(800)" class="v-btn--flat") 〜８００円
-    v-btn(@click="nextPage(1000)" class="v-btn--flat") 〜１０００円
-    v-btn(@click="nextPage(10000)" class="v-btn--flat") とくになし
+    v-btn(@click="nextPage(500)" class="v-btn--flat answer-btn") 〜５００円
+    v-btn(@click="nextPage(700)" class="v-btn--flat answer-btn") 〜７００円
+    v-btn(@click="nextPage(1000)" class="v-btn--flat answer-btn") 〜１０００円
+    v-btn(@click="nextPage(10000)" class="v-btn--flat answer-btn") とくになし
 </template>
 
 <script>
@@ -30,18 +30,4 @@ export default {
 }
 </script>
 <style scoped lang="stylus">
-.container
-  margin: 0 auto;
-  min-height: 100vh;
-h1
-  text-align: center;
-  font-size: 2em;
-  margin: 100px 0;
-.answer-form
-  display: flex;
-  flex-direction: column;
-.v-btn--flat
-  margin: 15px;
-  min-height: 60px;
-  background-color: #EF860F;
 </style>
