@@ -1,9 +1,11 @@
 <template lang="pug">
 .container
-  h1 カウンターで食事を取りたいですか？
+  h1 予算はどれくらいですか？
   .answer-form
-    v-btn(@click="yesAndNextPage" class="v-btn--flat") はい
-    v-btn(@click="noAndNextPage" class="v-btn--flat") いいえ
+    v-btn(@click="nextPage(600)" class="v-btn--flat") 〜６００円
+    v-btn(@click="nextPage(800)" class="v-btn--flat") 〜８００円
+    v-btn(@click="nextPage(1000)" class="v-btn--flat") 〜１０００円
+    v-btn(@click="nextPage(10000)" class="v-btn--flat") とくになし
 </template>
 
 <script>
@@ -13,19 +15,15 @@ export default {
   },
   props: {
     answer6: {
-      type: String,
-      default: ''
+      type: Number,
+      default: 0
     }
   },
   data: () => ({
   }),
   methods: {
-    yesAndNextPage() {
-      this.$emit('update:answer6', 'はい')
-      this.$emit('nextPage')
-    },
-    noAndNextPage() {
-      this.$emit('update:answer6', 'いいえ')
+    nextPage(value) {
+      this.$emit('update:answer6', value)
       this.$emit('nextPage')
     }
   }
@@ -44,6 +42,6 @@ h1
   flex-direction: column;
 .v-btn--flat
   margin: 15px;
-  min-height: 100px;
+  min-height: 60px;
   background-color: #EF860F;
 </style>

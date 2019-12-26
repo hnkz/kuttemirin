@@ -1,9 +1,9 @@
 <template lang="pug">
 .container
-  h1 たばこは吸いますか？
+  h1 カウンターで食事を取りたいですか？
   .answer-form
-    v-btn(@click="yesAndNextPage" class="v-btn--flat") はい
-    v-btn(@click="noAndNextPage" class="v-btn--flat") いいえ
+    v-btn(@click="nextPage('はい')" class="v-btn--flat") はい
+    v-btn(@click="nextPage('いいえ')" class="v-btn--flat") いいえ
 </template>
 
 <script>
@@ -20,12 +20,8 @@ export default {
   data: () => ({
   }),
   methods: {
-    yesAndNextPage() {
-      this.$emit('update:answer5', 'はい')
-      this.$emit('nextPage')
-    },
-    noAndNextPage() {
-      this.$emit('update:answer5', 'いいえ')
+    nextPage(value) {
+      this.$emit('update:answer5', value)
       this.$emit('nextPage')
     }
   }

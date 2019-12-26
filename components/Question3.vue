@@ -2,8 +2,12 @@
 .container
   h1 何人で行きますか？
   .answer-form
-    v-btn(@click="yesAndNextPage" class="v-btn--flat") はい
-    v-btn(@click="noAndNextPage" class="v-btn--flat") いいえ
+    v-btn(@click="nextPage(1)" class="v-btn--flat") １人
+    v-btn(@click="nextPage(2)" class="v-btn--flat") ２人
+    v-btn(@click="nextPage(4)" class="v-btn--flat") ３〜４人
+    v-btn(@click="nextPage(7)" class="v-btn--flat") ５〜７人
+    v-btn(@click="nextPage(12)" class="v-btn--flat") それ以上
+
 </template>
 
 <script>
@@ -13,19 +17,15 @@ export default {
   },
   props: {
     answer3: {
-      type: String,
-      default: ''
+      type: Number,
+      default: 0
     }
   },
   data: () => ({
   }),
   methods: {
-    yesAndNextPage() {
-      this.$emit('update:answer3', 'はい')
-      this.$emit('nextPage')
-    },
-    noAndNextPage() {
-      this.$emit('update:answer3', 'いいえ')
+    nextPage(value) {
+      this.$emit('update:answer3', value)
       this.$emit('nextPage')
     }
   }
@@ -44,6 +44,6 @@ h1
   flex-direction: column;
 .v-btn--flat
   margin: 15px;
-  min-height: 100px;
+  min-height: 60px;
   background-color: #EF860F;
 </style>

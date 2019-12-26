@@ -6,6 +6,10 @@
       :is="subPage"
       :answer1.sync="answer1"
       :answer2.sync="answer2"
+      :answer3.sync="answer3"
+      :answer4.sync="answer4"
+      :answer5.sync="answer5"
+      :answer6.sync="answer6"
       @nextPage="nextPage"
     )
 </template>
@@ -18,12 +22,14 @@ import Question3 from '~/components/Question3.vue'
 import Question4 from '~/components/Question4.vue'
 import Question5 from '~/components/Question5.vue'
 import Question6 from '~/components/Question6.vue'
-import Question7 from '~/components/Question6.vue'
 import RecommendResult from '~/components/RecommendResult.vue'
 
 import morningData from '~/assets/data/morning.json'
 
 export default {
+  watchQuery: ['page'],
+  key: to => to.fullPath,
+  transition: 'page',
   components: {
     RecommendHeader,
     Question1,
@@ -32,37 +38,33 @@ export default {
     Question4,
     Question5,
     Question6,
-    Question7,
     RecommendResult
   },
   data: () => ({
     shopData: [],
     answer1: '',
     answer2: '',
-    answer3: '',
+    answer3: 0,
     answer4: '',
     answer5: '',
-    answer6: '',
-    answer7: ''
+    answer6: 0
   }),
   computed: {
     subPage() {
-      switch (this.$route.hash) {
-        case '#Question1':
+      switch (this.$route.query.page) {
+        case 'Question1':
           return Question1
-        case '#Question2':
+        case 'Question2':
           return Question2
-        case '#Question3':
+        case 'Question3':
           return Question3
-        case '#Question4':
+        case 'Question4':
           return Question4
-        case '#Question5':
+        case 'Question5':
           return Question5
-        case '#Question6':
+        case 'Question6':
           return Question6
-        case '#Question7':
-          return Question7
-        case '#Result':
+        case 'Result':
           return RecommendResult
         default:
           return Question1
@@ -74,31 +76,27 @@ export default {
   },
   methods: {
     nextPage() {
-      console.log(this.answer1)
-      switch (this.$route.hash) {
-        case '#Question1':
-          this.$router.push({ hash: '#Question2' })
+      switch (this.$route.query.page) {
+        case 'Question1':
+          this.$router.push('?page=Question2')
           break
-        case '#Question2':
-          this.$router.push({ hash: '#Question3' })
+        case 'Question2':
+          this.$router.push('?page=Question3')
           break
-        case '#Question3':
-          this.$router.push({ hash: '#Question4' })
+        case 'Question3':
+          this.$router.push('?page=Question4')
           break
-        case '#Question4':
-          this.$router.push({ hash: '#Question5' })
+        case 'Question4':
+          this.$router.push('?page=Question5')
           break
-        case '#Question5':
-          this.$router.push({ hash: '#Question6' })
+        case 'Question5':
+          this.$router.push('?page=Question6')
           break
-        case '#Question6':
-          this.$router.push({ hash: '#Question7' })
-          break
-        case '#Question7':
-          this.$router.push({ hash: '#Result' })
+        case 'Question6':
+          this.$router.push('?page=Result')
           break
         default:
-          this.$router.push({ hash: '#Question2' })
+          this.$router.push('?page=Question2')
       }
     }
   }
