@@ -2,9 +2,9 @@
 .container
   .main
     header
-      h1 くってみりん
+      h3 くってみりん
     .contents
-      v-btn(to="recommend") お店を決める
+      v-btn(class="top-btn" to="recommend") お店を探す
     footer
 </template>
 
@@ -26,4 +26,16 @@ header
   text-align: center;
 .contents
   text-align: center;
+.top-btn
+  height: 150px;
+  max-height: 200px;
+  max-width: 500px;
+  rouneded: true;
+  width: 150px;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
 </style>
