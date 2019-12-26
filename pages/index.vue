@@ -27,9 +27,9 @@ header
 .contents
   text-align: center;
 .top-btn
-  height: 150px;
   max-height: 200px;
   max-width: 500px;
+  height: 150px;
   rouneded: true;
   width: 150px;
   border: none;
@@ -37,5 +37,4 @@ header
   padding: 15px 32px;
   text-align: center;
   font-size: 16px;
-  margin: 4px 2px;
 </style>
