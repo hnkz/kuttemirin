@@ -10,9 +10,9 @@
 export default {
   components: {
   },
-  props: [
-    'answer1'
-  ],
+  props: {
+    answer1: String
+  },
   data: () => ({
     to: { hash: '#Question2' }
   }),

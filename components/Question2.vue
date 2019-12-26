@@ -9,9 +9,9 @@
 export default {
   components: {
   },
-  props: [
-    'answer2'
-  ],
+  props: {
+    answer2: String
+  },
   methods: {
 
   }
