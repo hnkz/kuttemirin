@@ -1,22 +1,24 @@
 <template lang="pug">
 .container
   .main
+    RecommendHeader
     component(
       :is="subPage"
       :answer1.sync="answer1"
       :answer2.sync="answer2"
       @nextPage="nextPage"
     )
-    footer
 </template>
 
 <script>
+import RecommendHeader from '~/components/RecommendHeader.vue'
 import Question1 from '~/components/Question1.vue'
 import Question2 from '~/components/Question2.vue'
 import morningData from '~/assets/data/morning.json'
 
 export default {
   components: {
+    RecommendHeader,
     Question1,
     Question2
   },
