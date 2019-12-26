@@ -1,7 +1,7 @@
 <template lang="pug">
 .header
-  .position-left(@click="back")
-    v-icon(@click="back") mdi-chevron-left
+  .position-left
+    v-icon(@click="back" size="2em") mdi-chevron-left
 </template>
 
 <script>
@@ -22,5 +22,7 @@ export default {
 }
 </script>
 <style scoped lang="stylus">
-
+.header
+  display: flex;
+  justify-content: space-between;
 </style>

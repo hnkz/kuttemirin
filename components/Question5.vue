@@ -12,7 +12,7 @@ export default {
   components: {
   },
   props: {
-    answer2: {
+    answer5: {
       type: String,
       default: ''
     }
@@ -21,11 +21,11 @@ export default {
   }),
   methods: {
     yesAndNextPage() {
-      this.$emit('update:answer2', 'はい')
+      this.$emit('update:answer5', 'はい')
       this.$emit('nextPage')
     },
     noAndNextPage() {
-      this.$emit('update:answer2', 'いいえ')
+      this.$emit('update:answer5', 'いいえ')
       this.$emit('nextPage')
     }
   }

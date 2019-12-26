@@ -1,6 +1,6 @@
 <template lang="pug">
 .container
-  h1 たばこは吸いますか？
+  h1 何人で行きますか？
   .answer-form
     v-btn(@click="yesAndNextPage" class="v-btn--flat") はい
     v-btn(@click="noAndNextPage" class="v-btn--flat") いいえ
@@ -12,7 +12,7 @@ export default {
   components: {
   },
   props: {
-    answer2: {
+    answer3: {
       type: String,
       default: ''
     }
@@ -21,11 +21,11 @@ export default {
   }),
   methods: {
     yesAndNextPage() {
-      this.$emit('update:answer2', 'はい')
+      this.$emit('update:answer3', 'はい')
       this.$emit('nextPage')
     },
     noAndNextPage() {
-      this.$emit('update:answer2', 'いいえ')
+      this.$emit('update:answer3', 'いいえ')
       this.$emit('nextPage')
     }
   }
