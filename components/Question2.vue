@@ -10,10 +10,15 @@ export default {
   components: {
   },
   props: {
-    answer2: String
+    answer2: {
+      type: String,
+      default: ''
+    }
   },
   methods: {
-
+    nextPage() {
+      this.emit('nextPage')
+    }
   }
 }
 </script>

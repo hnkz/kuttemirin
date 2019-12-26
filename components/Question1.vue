@@ -2,7 +2,7 @@
 .container
   h1 車でいきますか？
   p {{answer1}}
-  v-btn(:to="to") つぎ
+  v-btn(@click="nextPage") つぎ
 </template>
 
 <script>
@@ -11,13 +11,18 @@ export default {
   components: {
   },
   props: {
-    answer1: String
+    answer1: {
+      type: String,
+      default: ''
+    }
   },
   data: () => ({
-    to: { hash: '#Question2' }
   }),
   methods: {
-
+    nextPage() {
+      console.log('aue')
+      this.$emit('nextPage')
+    }
   }
 }
 </script>

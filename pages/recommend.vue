@@ -1,27 +1,29 @@
 <template lang="pug">
 .container
   .main
-    header
-      h1 {title}
-    .contents
-      component(
-        :is="subPage"
-        :answer1.sync="answer1"
-        :answer2.sync="answer2"
-      )
-    footer
+    RecommendHeader
+    component(
+      :is="subPage"
+      :answer1.sync="answer1"
+      :answer2.sync="answer2"
+      @nextPage="nextPage"
+    )
 </template>
 
 <script>
+import RecommendHeader from '~/components/RecommendHeader.vue'
 import Question1 from '~/components/Question1.vue'
 import Question2 from '~/components/Question2.vue'
+import morningData from '~/assets/data/morning.json'
 
 export default {
   components: {
+    RecommendHeader,
     Question1,
     Question2
   },
   data: () => ({
+    shopData: [],
     answer1: 'test1',
     answer2: 'test2'
   }),
@@ -37,7 +39,22 @@ export default {
       }
     }
   },
+  mounted() {
+    this.shopData = morningData
+  },
   methods: {
+    nextPage() {
+      switch (this.$route.hash) {
+        case '#Question1':
+          this.$router.push({ hash: '#Question2' })
+          break
+        case '#Question2':
+          this.$router.push({ hash: '#Question1' })
+          break
+        default:
+          this.$router.push({ hash: '#Question2' })
+      }
+    }
   }
 }
 </script>
