@@ -1,17 +1,19 @@
 <template lang="pug">
 .container
-  .main
-    header
-      h1 くってみりん
-    .contents
-      v-btn(to="recommend") お店を決める
-    footer
+  h1 タバコは吸いますか？
+  p {{answer2}}
 </template>
 
 <script>
 
 export default {
   components: {
+  },
+  props: [
+    'answer2'
+  ],
+  methods: {
+
   }
 }
 </script>

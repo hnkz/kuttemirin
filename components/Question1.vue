@@ -1,17 +1,23 @@
 <template lang="pug">
 .container
-  .main
-    header
-      h1 くってみりん
-    .contents
-      v-btn(to="recommend") お店を決める
-    footer
+  h1 車でいきますか？
+  p {{answer1}}
+  v-btn(:to="to") つぎ
 </template>
 
 <script>
 
 export default {
   components: {
+  },
+  props: [
+    'answer1'
+  ],
+  data: () => ({
+    to: { hash: '#Question2' }
+  }),
+  methods: {
+
   }
 }
 </script>
