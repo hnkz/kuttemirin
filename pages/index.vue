@@ -23,7 +23,7 @@ export default {
 
 <style scoped lang="stylus">
 .container
-  background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ) ,url("~assets/images/bg.jpg");
+  background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ) ,url("~assets/blur_img/bg.jpg");
   background-size: cover;
   background-blend-mode: saturation;
   background-repeat: no-repeat;
