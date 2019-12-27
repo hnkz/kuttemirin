@@ -45,7 +45,7 @@ body {
 .v-btn--flat.answer-btn {
   margin: 15px;
   min-height: 60px;
-  background: linear-gradient(rgb(231, 142, 40), rgb(248, 141, 18));
+  background: linear-gradient(#73492E, rgb(131, 83, 47));
   border-radius: 30px;
 }
 .answer-btn .v-btn__content {

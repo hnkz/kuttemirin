@@ -18,13 +18,31 @@
 <script>
 export default {
   components: {
+  },
+  mounted() {
+    // 位置情報
+    if (this.$store.state.userInformation.latitude === 0) {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(this.setGeoLocation, (error) => {
+          console.log(error)
+        }, { timeout: 10000 })
+      } else {
+        console.log('位置情報が取得できない')
+      }
+    }
+  },
+  methods: {
+    setGeoLocation(position) {
+      this.$store.commit('userInformation/setLatitude', position.coords.latitude)
+      this.$store.commit('userInformation/setLongitude', position.coords.longitude)
+    }
   }
 }
 </script>
 
 <style scoped lang="stylus">
-.container
-  height: 100vh!important
+.index-container
+  height: 60px!important
   margin: 0px;
   padding: 0px;
   border: 0px;
@@ -34,7 +52,7 @@ export default {
   font-weight: bold;
   padding: 10vh;
 .top-btn
-  height: 10vh!important
+  height: 60px!important
   width: 30vh!important
   font-weight: bold;
   max-width: 100%;
@@ -42,6 +60,7 @@ export default {
   text-align: center;
   margin-top: 10vh;
   padding-top: 15vh;
+  border-radius: 30px
 .btn
   text-align: center;
 .b-footer

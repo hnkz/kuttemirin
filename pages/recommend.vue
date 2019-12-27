@@ -10,7 +10,6 @@
       :answer4.sync="answer4"
       :answer5.sync="answer5"
       :answer6.sync="answer6"
-      :shopList="filteredData"
       @nextPage="nextPage"
     )
 </template>
@@ -71,10 +70,17 @@ export default {
         default:
           return Question1
       }
+    },
+    shopList() {
+      return this.$store.state.shopList.list
     }
   },
   mounted() {
-    this.filteredData = morningData
+    if (this.$store.state.shopList.list.length === 0) {
+      this.filteredData = morningData
+    } else {
+      this.filteredData = this.shopList
+    }
   },
   methods: {
     nextPage() {
@@ -118,6 +124,10 @@ export default {
           }
           this.$router.push('?page=Question2')
       }
+      this.setList(this.filteredData)
+    },
+    setList(list) {
+      this.$store.commit('shopList/set', list)
     }
   }
 }
