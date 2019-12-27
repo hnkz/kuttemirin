@@ -1,13 +1,16 @@
 <template>
   <v-app>
-    <nuxt />
+    <v-container class="mobile-view pa-0">
+      <v-content>
+        <nuxt />
+      </v-content>
+    </v-container>
   </v-app>
 </template>
 
 <style>
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", "Meiryo", "verdana", sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
