@@ -1,6 +1,4 @@
 import pkg from './package'
-import path from 'path'
-import fs from 'fs'
 
 module.exports = {
   mode: 'universal',

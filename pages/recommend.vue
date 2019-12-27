@@ -141,6 +141,7 @@ export default {
 .main
   margin-top: 0px;
   padding: 0;
+  margin-bottom: 40px;
 .contents
   text-align: center;
 footer

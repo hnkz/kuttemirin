@@ -50,4 +50,6 @@ h1.recommend-title
   background-color: #464646;
   position: fixed;
   z-index: 0;
+.v-btn--flat.answer-btn
+  margin: 10px;
 </style>

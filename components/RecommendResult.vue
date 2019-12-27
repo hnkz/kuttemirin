@@ -18,6 +18,8 @@
       div 参考価格: {{item.price}}
       div 席数: {{item.table_seat}} / カウンター数: {{item.counter_seat}}
       div {{item.smoking}}
+      nuxt-link(to="/" class="modify-request")
+        p お店情報の修正
 </template>
 
 <script>
@@ -65,4 +67,6 @@ h1
   margin: 10px;
 .shop-card .v-card__title
   background-color: rgba(0,0,0,0.3);
+.modify-request
+  text-align: center;
 </style>

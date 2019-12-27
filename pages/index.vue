@@ -2,13 +2,19 @@
 .index-container
   .contents
     .text
-      v-img(src="/img/logo.png" width="400px" height="400px")
+      nuxt-link(to="/")
+        v-img(src="/img/logo.png" width="400px" height="400px")
     .btn
       v-btn(color="rgb(255, 154, 39)" dark depressed class="top-btn" to="recommend?page=Question1") お店を探す
+    .btn
+      v-btn(color="rgb(255, 154, 39)" dark depressed class="top-btn" to="recommend?page=Result") お店の一覧を見る
+    nuxt-link(class="addlink" to="/addshop")
+      p お店情報を追加する
   footer
 </template>
 
 <script>
+import morningData from '~/assets/data/morning.json'
 
 export default {
   components: {
@@ -24,6 +30,8 @@ export default {
         console.log('位置情報が取得できない')
       }
     }
+    // データ
+    this.$store.commit('shopList/set', morningData)
   },
   methods: {
     setGeoLocation(position) {
@@ -71,8 +79,11 @@ export default {
   max-width: 100%;
   max-height 100%;
   text-align: center;
-  margin-top: 15vh;
+  margin-top: 7vh;
   border-radius: 30px
 .btn
   text-align: center;
+.addlink
+  padding: 20px;
+  color: rgb(236, 202, 162);
 </style>
