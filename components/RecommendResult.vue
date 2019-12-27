@@ -11,7 +11,7 @@
     v-card-subtitle(class="pb-0") {{item.concept}}
     v-card-text(class="text--primary")
       div {{item.address}}
-      div 駅から{{item.distance}} / 駐車場: {{item.parking}}
+      div 現在地から{{item.hereDistance}} m / 駐車場: {{item.parking}}
       div 営業時間: {{item.business_hours}}
       div モーニング: {{item.morning_hours}}
       div 定休日: {{item.holiday}}
@@ -26,19 +26,34 @@ export default {
   components: {
   },
   props: {
-    shopList: {
-      type: Array,
-      default: () => []
-    }
   },
   data: () => ({
+    shopList: []
   }),
   mounted() {
-    console.log(this.shopList)
+    if (this.shopList.length === 0) {
+      const shopList = JSON.parse(JSON.stringify(this.$store.state.shopList.list))
+      const lat = this.$store.state.userInformation.latitude
+      const lon = this.$store.state.userInformation.longitude
+      for (let i = 0; i < shopList.length; i++) {
+        const distance = this.calculateDistance(lat, lon, shopList[i].lat, shopList[i].lon)
+        shopList[i].hereDistance = Math.round(distance * 1000)
+      }
+      shopList.sort((a, b) => a.hereDistance > b.hereDistance)
+      this.$store.commit('shopList/set', shopList)
+      this.shopList = shopList
+    }
   },
   methods: {
     shopImgPath(imgName) {
       return '/img/shop/' + imgName
+    },
+    calculateDistance(lat1, lng1, lat2, lng2) {
+      lat1 *= Math.PI / 180
+      lng1 *= Math.PI / 180
+      lat2 *= Math.PI / 180
+      lng2 *= Math.PI / 180
+      return 6371 * Math.acos(Math.cos(lat1) * Math.cos(lat2) * Math.cos(lng2 - lng1) + Math.sin(lat1) * Math.sin(lat2))
     }
   }
 }
