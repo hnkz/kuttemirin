@@ -1,7 +1,9 @@
 <template lang="pug">
 .container
-  h1 タバコは吸いますか？
-  p {{answer2}}
+  h1(class="recommend-title") たばこをお店で吸いますか？
+  .answer-form
+    v-btn(@click="nextPage('はい')" class="v-btn--flat answer-btn") はい
+    v-btn(@click="nextPage('いいえ')" class="v-btn--flat answer-btn") いいえ
 </template>
 
 <script>
@@ -10,22 +12,20 @@ export default {
   components: {
   },
   props: {
-    answer2: String
+    answer2: {
+      type: String,
+      default: ''
+    }
   },
+  data: () => ({
+  }),
   methods: {
-
+    nextPage(value) {
+      this.$emit('update:answer2', value)
+      this.$emit('nextPage')
+    }
   }
 }
 </script>
 <style scoped lang="stylus">
-.container
-  margin: 0 auto;
-  min-height: 100vh;
-.main
-  padding: 15px;
-header
-  height: 150px;
-  text-align: center;
-.contents
-  text-align: center;
 </style>
