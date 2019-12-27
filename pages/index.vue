@@ -32,7 +32,6 @@ export default {
   },
   methods: {
     setGeoLocation(position) {
-      console.log(position)
       this.$store.commit('userInformation/setLatitude', position.coords.latitude)
       this.$store.commit('userInformation/setLongitude', position.coords.longitude)
     }
@@ -54,13 +53,14 @@ export default {
   display: inline-flex;
   text-align: center;
 .top-btn
-  height: 10vh!important
+  height: 60px!important
   width: 30vh!important
   font-weight: bold;
   max-width: 100%;
   max-height 100%;
   text-align: center;
   margin-top: 15vh;
+  border-radius: 30px
 .btn
   text-align: center;
 </style>
