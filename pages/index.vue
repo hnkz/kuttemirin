@@ -25,7 +25,7 @@ export default {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(this.setGeoLocation, (error) => {
           console.log(error)
-        }, { timeout: 10000 })
+        }, { timeout: 100 })
       } else {
         console.log('位置情報が取得できない')
       }
@@ -35,6 +35,7 @@ export default {
   },
   methods: {
     setGeoLocation(position) {
+      console.log(position)
       this.$store.commit('userInformation/setLatitude', position.coords.latitude)
       this.$store.commit('userInformation/setLongitude', position.coords.longitude)
     }

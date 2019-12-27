@@ -6,8 +6,6 @@
     .form
       v-form(ref="form" lazy-validation)
         v-text-field(
-          v-model="name"
-          :rules="nameRules"
           :counter="10"
           label="店名"
           required
@@ -70,13 +68,19 @@
       )
       v-file-input(label="店の画像1")
       v-file-input(label="店の画像2")
+      v-text-field(
+        label="投稿者の名前"
+        required
+      )
+      v-text-field(
+        label="メールアドレス"
+        required
+      )
       v-checkbox(
-        v-model="checkbox"
         label="利用規約に同意します"
         required
       )
       v-btn(
-        @click="submit"
       ) 送信
 </template>
 
@@ -143,7 +147,7 @@ h1
   margin-top: 10vh;
   text-align: center;
 .form
-  background-color: rgba(255,255,255,0.5);
+  background-color: rgba(255,255,255,0.7);
   margin: 15px;
   padding: 10px;
 </style>

@@ -151,6 +151,6 @@ footer
   bottom: 0;
   text-align: center;
   font-fize: 0.8em;
-  background-color: #ccc;
+  background-color: rgb(204, 204, 204);
   line-height: 30px;
 </style>
