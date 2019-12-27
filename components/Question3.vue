@@ -1,6 +1,8 @@
 <template lang="pug">
 .container
-  h1(class="recommend-title") 何人で行きますか？
+  .layer
+    .bg
+    h1(class="recommend-title") 何人で行きますか？
   .answer-form
     v-btn(@click="nextPage(1)" class="v-btn--flat answer-btn") １人
     v-btn(@click="nextPage(2)" class="v-btn--flat answer-btn") ２人
@@ -32,4 +34,20 @@ export default {
 }
 </script>
 <style scoped lang="stylus">
+.layer
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+h1.recommend-title
+  z-index: 100;
+  margin-top: 30%;
+.bg
+  padding: 50%;
+  width: 100%;
+  background-image: url("~assets/blur_img/blur3.jpg");
+  background-size: cover;
+  background-color: #464646;
+  position: fixed;
+  z-index: 0;
 </style>

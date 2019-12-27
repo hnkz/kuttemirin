@@ -59,6 +59,8 @@ export default {
 }
 </script>
 <style scoped lang="stylus">
+h1
+  margin-top: 70px;
 .shop-card
   margin: 10px;
 .shop-card .v-card__title

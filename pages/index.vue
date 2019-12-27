@@ -1,21 +1,15 @@
 <template lang="pug">
-.container
-  .header
-    img(src="~assets/img/shop/shop_ran_sub.jpg")
+.index-container
+  .contents
     .text
-      p
-      | くってみりん
-      br
-      | ~豊橋でモーニングを楽しもう~
+      v-img(src="/img/logo.png" width="400px" height="400px")
     .btn
-      v-btn(color="#67391C" dark flat depressed class="top-btn" to="recommend" ) お店を探す
-  footer(class="b-footer")
-    .footer-text
-      p
-      | テキスト
+      v-btn(color="rgb(255, 154, 39)" dark depressed class="top-btn" to="recommend?page=Question1") お店を探す
+  footer
 </template>
 
 <script>
+
 export default {
   components: {
   },
@@ -42,15 +36,34 @@ export default {
 
 <style scoped lang="stylus">
 .index-container
-  height: 60px!important
-  margin: 0px;
-  padding: 0px;
-  border: 0px;
+  height:100%;
+  background-image: url("~assets/images/bg.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+  z-index: 0;
+.index-container:before
+  content: '';
+  background: inherit;
+  -webkit-filter: blur(15px);
+  -moz-filter: blur(15px);
+  -o-filter: blur(15px);
+  -ms-filter: blur(15px);
+  filter: blur(15px);
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+.contents
+  margin-top: 10vh;
+  text-align: center;
 .text
   display: inline-flex;
   text-align: center;
-  font-weight: bold;
-  padding: 10vh;
 .top-btn
   height: 60px!important
   width: 30vh!important
@@ -58,18 +71,8 @@ export default {
   max-width: 100%;
   max-height 100%;
   text-align: center;
-  margin-top: 10vh;
-  padding-top: 15vh;
+  margin-top: 15vh;
   border-radius: 30px
 .btn
   text-align: center;
-.b-footer
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 10vh;
-  background-color: rgba(204, 167, 159, 0.3);
-  font-size: 0.5em;
-.footer-text
-  padding-left: 3vh;;
 </style>

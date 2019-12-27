@@ -1,10 +1,6 @@
 <template>
   <v-app>
-    <v-container class="mobile-view pa-0">
-      <v-content>
-        <nuxt />
-      </v-content>
-    </v-container>
+    <nuxt />
   </v-app>
 </template>
 

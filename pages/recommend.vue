@@ -1,7 +1,7 @@
 <template lang="pug">
 .container
+  RecommendHeader
   .main
-    RecommendHeader
     component(
       :is="subPage"
       :answer1.sync="answer1"
@@ -12,6 +12,8 @@
       :answer6.sync="answer6"
       @nextPage="nextPage"
     )
+  footer
+    p &copy; 2019 くってみりん
 </template>
 
 <script>
@@ -133,11 +135,21 @@ export default {
 }
 </script>
 <style scoped lang="stylus">
+.container
+  padding: 0;
+  margin: 0;
 .main
-  padding: 15px;
-header
-  height: 150px;
-  text-align: center;
+  margin-top: 0px;
+  padding: 0;
 .contents
   text-align: center;
+footer
+  width: 100%
+  height: 30px;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  font-fize: 0.8em;
+  background-color: #ccc;
+  line-height: 30px;
 </style>
